@@ -12,5 +12,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  app: {
+    head: {
+      title: "Chat Nuxt"
+    }
   }
 });

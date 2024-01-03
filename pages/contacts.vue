@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot />
+    Contacts
   </div>
 </template>
 
