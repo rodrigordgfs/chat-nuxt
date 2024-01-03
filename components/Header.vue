@@ -2,7 +2,7 @@
   <div class="flex flex-row items-center justify-between">
     <NuxtLink to="/">
       <HomeIcon
-        class="w-8 h-8 text-white rounded"
+        class="w-8 h-8 text-white rounded transition-all"
         :class="{
           'opacity-10 cursor-not-allowed': isHomeRoute,
           'opacity-100 cursor-pointer': !isHomeRoute,

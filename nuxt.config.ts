@@ -17,5 +17,5 @@ export default defineNuxtConfig({
     head: {
       title: "Chat Nuxt"
     }
-  }
+  },
 });
