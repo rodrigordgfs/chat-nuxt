@@ -55,15 +55,16 @@ export const useChatStore = defineStore("chat", () => {
   const listChats = async () => {
     await initChat();
 
-    const chatData = chat.value.map((c) => {
-      return {
+    const chatData = chat.value
+      .map((c) => ({
         id: c.id,
         user: persons.value.find((p) => p.id === c.userId),
         messages: [],
-        // createdAt: moment(c.createdAt).startOf("hour").fromNow(),
         createdAt: moment(c.createdAt).format("HH:mm"),
-      };
-    });
+      }))
+      .sort((a, b) =>
+        moment(b.createdAt, "HH:mm").diff(moment(a.createdAt, "HH:mm"))
+      );
 
     return chatData;
   };
