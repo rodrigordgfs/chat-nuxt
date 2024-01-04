@@ -8,7 +8,13 @@
       :src="image"
       :alt="name"
     />
-    <div v-else></div>
+    <div
+      v-else
+      class="w-16 h-16 flex flex-row items-center justify-center text-white text-xl bg-blue-600 rounded-lg shadow-sm"
+    >
+      {{ initialsName }}
+    </div>
+
     <div class="flex flex-col flex-1 justify-center overflow-hidden">
       <p class="text-white text-xl font-medium truncate whitespace-nowrap">
         {{ name }}
@@ -18,13 +24,17 @@
       </p>
     </div>
     <div v-if="time" class="flex flex-col items-center justify-center">
-      <p class="text-gray-400 text-sm font-medium">12:00</p>
+      <p class="text-gray-400 text-sm font-medium">{{ time }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
 const props = defineProps(["image", "name", "message", "time"]);
+
+const initialsName = computed(
+  () => `${props.name.split(" ")[0][0]}${props.name.split(" ")[1][0]}`
+);
 </script>
 
 <style></style>

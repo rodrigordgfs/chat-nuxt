@@ -1,7 +1,7 @@
 <template>
-  <div class="flex-1">
-    <form @submit.prevent="performSearch" class="mt-4">
-      <div class="bg-zinc-800 rounded-lg p-3 flex flex-row items-center gap-2">
+  <div class="flex-1 overflow-y-auto custom-scrollbar mt-4">
+    <form @submit.prevent="performSearch" class="pr-2">
+      <div class="bg-zinc-800 rounded-lg p-3 flex flex-row items-center">
         <MagnifyingGlassIcon class="w-6 h-6 text-white" />
         <input
           v-model="searchQuery"
@@ -10,18 +10,18 @@
           class="bg-transparent w-full text-white placeholder-white focus:outline-none"
         />
       </div>
-      <div class="grid grid-cols-1 gap-4 mt-4">
-        <ChatPerson
-          v-for="chat in chats"
-          :key="chat.id"
-          :name="chat.user.name"
-          :image="chat.user.image"
-          :message="chat.messages[0]?.message"
-          :time="chat.createdAt"
-          @click="handleOpenChat(chat.id)"
-        />
-      </div>
     </form>
+    <div class="grid grid-cols-1 gap-4 mt-4 pr-2">
+      <ChatPerson
+        v-for="chat in chats"
+        :key="chat.id"
+        :name="chat.user.name"
+        :image="chat.user.image"
+        :message="chat.messages[0]?.message"
+        :time="chat.createdAt"
+        @click="handleOpenChat(chat.id)"
+      />
+    </div>
   </div>
 </template>
 
@@ -50,4 +50,20 @@ const handleOpenChat = (chatId) => {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2563eb;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #edf2f7;
+    border-radius: 6px;
+  }
+}
+</style>

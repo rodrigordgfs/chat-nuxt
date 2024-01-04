@@ -8,7 +8,7 @@ export const usePersons = () =>
     {
       id: "1db09e73-5e69-426e-8182-56b5a6c64659",
       name: "Jim Mendoza",
-      image: "https://randomuser.me/api/portraits/men/25.jpg",
+      image: "",
     },
     {
       id: "e5550bab-ccef-4455-a1a4-6ecbabd55da4",
@@ -23,7 +23,7 @@ export const usePersons = () =>
     {
       id: "5c845798-734d-4758-8c31-d2e6b6f6243d",
       name: "Brad Gibson",
-      image: "https://randomuser.me/api/portraits/men/46.jpg",
+      image: "",
     },
     {
       id: "7807a141-ef71-4031-be15-761cf8cf5453",
@@ -33,7 +33,7 @@ export const usePersons = () =>
     {
       id: "0677a92c-49e6-430b-abd2-4840d578d52c",
       name: "Courtney Brooks",
-      image: "https://randomuser.me/api/portraits/men/66.jpg",
+      image: "",
     },
     {
       id: "ff4a7658-2c2a-4ed3-a9c4-37734c19dc31",
@@ -43,7 +43,7 @@ export const usePersons = () =>
     {
       id: "e1c871ea-324f-4065-b25b-230baf363d9c",
       name: "Matthew Johnson",
-      image: "https://randomuser.me/api/portraits/men/17.jpg",
+      image: "",
     },
     {
       id: "b3a717a3-ca59-4417-b07c-e74ca0c96998",

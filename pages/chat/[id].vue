@@ -1,8 +1,6 @@
 <template>
   <HeaderChat :name="userName" :image="userImage" />
-  <div class="text-white text-2xl">
-    {{ chatId }}
-  </div>
+  <div class="text-white text-2xl"></div>
 </template>
 
 <script setup>

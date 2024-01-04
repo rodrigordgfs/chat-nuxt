@@ -25,7 +25,7 @@ const handleNewChat = async (id) => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .custom-scrollbar {
   &::-webkit-scrollbar {
     width: 8px;
