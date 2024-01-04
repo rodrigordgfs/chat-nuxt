@@ -1,6 +1,7 @@
 <template>
   <HeaderChat :id="chatId" :name="userName" :image="userImage" />
-  <div class="text-white text-2xl"></div>
+  <MessageList />
+  <ChatInput />
 </template>
 
 <script setup>
