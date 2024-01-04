@@ -89,11 +89,31 @@ export const useChatStore = defineStore("chat", () => {
     saveToLocalStorage();
   };
 
+  const newMessage = async (id, userId, text) => {
+    const chatIndex = chat.value.findIndex((c) => c.id === id);
+    if (chatIndex !== -1) {
+      const newMessage = {
+        id: uuidv4(),
+        createdAt: moment().format("YYYY-MM-DD HH:mm:ss"),
+        userId,
+        text,
+      };
+      chat.value[chatIndex].messages = [
+        ...chat.value[chatIndex].messages,
+        newMessage,
+      ];
+      await saveToLocalStorage();
+      return newMessage.id;
+    }
+    return null;
+  };
+
   return {
     chat,
     newChat,
     listChats,
     getChatById,
     deleteChat,
+    newMessage,
   };
 });

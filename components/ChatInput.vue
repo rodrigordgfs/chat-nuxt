@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-row gap-2" @click.prevent="">
+  <form class="flex flex-row gap-2" @click.prevent="handleSendMessage">
     <div class="flex flex-row flex-1 gap-2 bg-gray-800 rounded-lg px-4 py-3">
       <input
         type="text"
@@ -25,10 +25,22 @@
 <script setup>
 import { PaperAirplaneIcon, FaceSmileIcon } from "@heroicons/vue/24/solid";
 
+const chatStore = useChatStore();
+const userStore = useUserStore();
+
+const props = defineProps(["id", "userId"]);
+
 const message = ref("");
 
 const handleSelectEmoji = (emoji) => {
-  message.value += emoji;
+  message.value = `${message.value.trim()}${emoji}`;
+};
+
+const handleSendMessage = async () => {
+  if (message.value) {
+    await chatStore.newMessage(props.id, userStore.id, message.value);
+    message.value = "";
+  }
 };
 </script>
 
