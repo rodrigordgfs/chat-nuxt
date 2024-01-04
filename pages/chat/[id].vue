@@ -1,5 +1,5 @@
 <template>
-  <HeaderChat :name="userName" :image="userImage" />
+  <HeaderChat :id="chatId" :name="userName" :image="userImage" />
   <div class="text-white text-2xl"></div>
 </template>
 

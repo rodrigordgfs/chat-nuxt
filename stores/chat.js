@@ -83,10 +83,16 @@ export const useChatStore = defineStore("chat", () => {
     return chatData[0];
   };
 
+  const deleteChat = async (id) => {
+    chat.value = await chat.value.filter((c) => c.id !== id);
+    saveToLocalStorage();
+  };
+
   return {
     chat,
     newChat,
     listChats,
     getChatById,
+    deleteChat,
   };
 });
