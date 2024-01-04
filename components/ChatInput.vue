@@ -5,8 +5,13 @@
         type="text"
         class="flex-1 bg-transparent text-white focus:outline-none"
         placeholder="Type a message"
+        v-model="message"
       />
-      <FaceSmileIcon class="w-6 h-6 text-white cursor-pointer" />
+      <NuxtEmoji @on-select="handleSelectEmoji" class="-mb-2">
+        <template v-slot:button>
+          <FaceSmileIcon class="w-6 h-6 text-white cursor-pointer" />
+        </template>
+      </NuxtEmoji>
     </div>
     <button
       type="submit"
@@ -19,6 +24,12 @@
 
 <script setup>
 import { PaperAirplaneIcon, FaceSmileIcon } from "@heroicons/vue/24/solid";
+
+const message = ref("");
+
+const handleSelectEmoji = (emoji) => {
+  message.value += emoji;
+};
 </script>
 
 <style></style>
