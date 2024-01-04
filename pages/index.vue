@@ -11,7 +11,15 @@
         />
       </div>
       <div class="grid grid-cols-1 gap-4 mt-4">
-        <!-- <ChatPerson /> -->
+        <ChatPerson
+          v-for="chat in chats"
+          :key="chat.id"
+          :name="chat.user.name"
+          :image="chat.user.image"
+          :message="chat.messages[0]?.message"
+          :time="chat.createdAt"
+          @click="handleOpenChat(chat.id)"
+        />
       </div>
     </form>
   </div>
@@ -20,8 +28,12 @@
 <script setup>
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
 
-const persons = usePersons()
-console.log(persons.value);
+const chatStore = useChatStore();
+const router = useRouter();
+
+const chats = ref([]);
+
+chatStore.listChats().then((data) => (chats.value = data));
 
 const searchQuery = ref("");
 
@@ -31,6 +43,10 @@ const performSearch = () => {
   if (searchQuery.value.length >= 3) {
     console.log("Realizando busca para:", searchQuery.value);
   }
+};
+
+const handleOpenChat = (chatId) => {
+  router.push(`/chat/${chatId}`);
 };
 </script>
 
