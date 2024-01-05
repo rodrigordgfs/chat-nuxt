@@ -76,7 +76,7 @@ export const useChatStore = defineStore("chat", () => {
         return {
           id: c.id,
           user: persons.value.find((p) => p.id === c.userId),
-          messages: [],
+          messages: c.messages,
           // createdAt: moment(c.createdAt).startOf("hour").fromNow(),
           createdAt: moment(c.createdAt).format("HH:mm"),
         };
