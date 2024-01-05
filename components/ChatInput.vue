@@ -7,11 +7,7 @@
         placeholder="Type a message"
         v-model="message"
       />
-      <NuxtEmoji @on-select="handleSelectEmoji" class="-mb-2">
-        <template v-slot:button>
-          <FaceSmileIcon class="w-6 h-6 text-white cursor-pointer" />
-        </template>
-      </NuxtEmoji>
+      <FaceSmileIcon class="w-6 h-6 text-white cursor-pointer" />
     </div>
     <button
       type="submit"
@@ -31,10 +27,6 @@ const userStore = useUserStore();
 const props = defineProps(["id", "userId"]);
 
 const message = ref("");
-
-const handleSelectEmoji = (emoji) => {
-  message.value = `${message.value.trim()}${emoji}`;
-};
 
 const handleSendMessage = async () => {
   if (message.value) {
