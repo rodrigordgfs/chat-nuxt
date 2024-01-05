@@ -23,15 +23,15 @@
         <p class="font-medium text-green-500 text-sm">Online</p>
       </div>
     </div>
-    <TrashIcon
-      class="w-8 h-8 text-red-500 cursor-pointer"
+    <EllipsisVerticalIcon
+      class="w-8 h-8 text-white cursor-pointer"
       @click="handleDeleteChat"
     />
   </div>
 </template>
 
 <script setup>
-import { ChevronLeftIcon, TrashIcon } from "@heroicons/vue/24/solid";
+import { ChevronLeftIcon, EllipsisVerticalIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps(["id", "name", "image"]);
 
