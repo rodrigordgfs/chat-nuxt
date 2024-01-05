@@ -3,8 +3,11 @@
     class="flex flex-row gap-3 items-center justify-between border-b border-white border-opacity-10 pb-4"
   >
     <div class="flex flex-row items-center gap-3">
-      <NuxtLink to="/">
-        <ChevronLeftIcon class="w-8 h-8 text-white rounded cursor-pointer" />
+      <NuxtLink
+        to="/"
+        class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-zinc-800 transition-all"
+      >
+        <ChevronLeftIcon class="w-7 h-7 text-white rounded cursor-pointer" />
       </NuxtLink>
       <img
         v-if="image"
@@ -23,10 +26,14 @@
         <p class="font-medium text-green-500 text-sm">Online</p>
       </div>
     </div>
-    <EllipsisVerticalIcon
-      class="w-8 h-8 text-white cursor-pointer"
-      @click="handleDeleteChat"
-    />
+    <div
+      class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-zinc-800 transition-all"
+    >
+      <EllipsisVerticalIcon
+        class="w-7 h-7 text-white cursor-pointer"
+        @click="handleDeleteChat"
+      />
+    </div>
   </div>
 </template>
 
@@ -45,8 +52,8 @@ const initialsName = computed(() => {
 });
 
 const handleDeleteChat = () => {
-  chatStore.deleteChat(props.id);
-  router.push("/");
+  // chatStore.deleteChat(props.id);
+  // router.push("/");
 };
 </script>
 
