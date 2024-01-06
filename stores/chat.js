@@ -59,7 +59,7 @@ export const useChatStore = defineStore("chat", () => {
       .map((c) => ({
         id: c.id,
         user: persons.value.find((p) => p.id === c.userId),
-        messages: [],
+        messages: c.messages,
         createdAt: moment(c.createdAt).format("HH:mm"),
       }))
       .sort((a, b) =>
@@ -95,6 +95,7 @@ export const useChatStore = defineStore("chat", () => {
       const newMessage = {
         id: uuidv4(),
         createdAt: moment().format("YYYY-MM-DD HH:mm:ss"),
+        isDeleted: false,
         userId,
         text,
       };

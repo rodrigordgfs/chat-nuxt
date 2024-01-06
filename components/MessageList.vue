@@ -1,7 +1,7 @@
 <template>
   <div
     ref="refMessageList"
-    class="flex flex-col flex-1 gap-4 my-4 pr-2 overflow-y-auto custom-scrollbar"
+    class="flex flex-col flex-1 gap-4 my-4 pr-4 overflow-y-auto custom-scrollbar"
   >
     <Message
       v-for="message in messages"

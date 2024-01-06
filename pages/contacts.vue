@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 gap-4 mt-4 overflow-y-auto custom-scrollbar pr-2"
+    class="grid grid-cols-1 gap-4 mt-4 overflow-y-auto custom-scrollbar pr-4"
   >
     <ChatPerson
       v-for="{ id, name, image } in persons"

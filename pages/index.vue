@@ -1,23 +1,23 @@
 <template>
   <div class="flex-1 overflow-y-auto custom-scrollbar mt-4">
-    <form @submit.prevent="performSearch" class="pr-2">
+    <form @submit.prevent="performSearch" class="pr-4">
       <div class="bg-zinc-800 rounded-lg p-3 flex flex-row items-center">
         <MagnifyingGlassIcon class="w-6 h-6 text-white" />
         <input
           v-model="searchQuery"
           @input="handleInput"
-          placeholder="Pesquisar conversas ..."
+          placeholder="Search conversations ..."
           class="bg-transparent w-full text-white placeholder-white focus:outline-none"
         />
       </div>
     </form>
-    <div class="grid grid-cols-1 gap-4 mt-4 pr-2">
+    <div class="grid grid-cols-1 gap-4 mt-4 pr-4">
       <ChatPerson
         v-for="chat in chats"
         :key="chat.id"
         :name="chat.user.name"
         :image="chat.user.image"
-        :message="chat.messages[0]?.message"
+        :message="chat.messages[chat.messages.length - 1]?.text"
         :time="chat.createdAt"
         @click="handleOpenChat(chat.id)"
       />
@@ -41,7 +41,7 @@ const handleInput = () => {};
 
 const performSearch = () => {
   if (searchQuery.value.length >= 3) {
-    console.log("Realizando busca para:", searchQuery.value);
+    console.log("Realizando busca para:", searchQuery.value, chats.value);
   }
 };
 
