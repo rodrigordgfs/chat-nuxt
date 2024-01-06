@@ -23,7 +23,15 @@
       </div>
       <div class="flex flex-col">
         <p class="text-white text-2xl font-medium">{{ name }}</p>
-        <p class="font-medium text-green-500 text-sm">Online</p>
+        <p
+          class="font-medium text-sm"
+          :class="{
+            'typing-animation text-blue-600': typing,
+            'text-green-500': !typing,
+          }"
+        >
+          {{ typing ? "Typing" : "Online" }}
+        </p>
       </div>
     </div>
     <div
@@ -40,7 +48,7 @@
 <script setup>
 import { ChevronLeftIcon, EllipsisVerticalIcon } from "@heroicons/vue/24/solid";
 
-const props = defineProps(["id", "name", "image"]);
+const props = defineProps(["id", "name", "image", "typing"]);
 
 const chatStore = useChatStore();
 const router = useRouter();
@@ -57,4 +65,24 @@ const handleDeleteChat = () => {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+@keyframes typingAnimation {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}
+
+.typing-animation::after {
+  content: "";
+  animation: typingAnimation 1s infinite steps(1, end);
+}
+</style>

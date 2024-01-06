@@ -24,8 +24,10 @@ import { PaperAirplaneIcon, FaceSmileIcon } from "@heroicons/vue/24/solid";
 
 const chatStore = useChatStore();
 const userStore = useUserStore();
+const loremIpsum = useLoremIpsum();
 
 const props = defineProps(["id", "userId"]);
+const emits = defineEmits(["typing"]);
 
 const message = ref("");
 const refInputMessage = ref(null);
@@ -35,6 +37,18 @@ const handleSendMessage = async () => {
     await chatStore.newMessage(props.id, userStore.id, message.value);
     message.value = "";
     refInputMessage.value.focus();
+
+    await nextTick();
+    setTimeout(() => {
+      emits("typing", true);
+    }, 3000);
+
+    setTimeout(async () => {
+      const userMessage =
+        loremIpsum.value[Math.floor(Math.random() * loremIpsum.value.length)];
+      await chatStore.newMessage(props.id, props.userId, userMessage);
+      emits("typing", false);
+    }, 6000);
   }
 };
 </script>
