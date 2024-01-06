@@ -2,6 +2,7 @@
   <form class="flex flex-row gap-2" @click.prevent="handleSendMessage">
     <div class="flex flex-row flex-1 gap-2 bg-gray-800 rounded-lg px-4 py-3">
       <input
+        ref="refInputMessage"
         type="text"
         class="flex-1 bg-transparent text-white focus:outline-none"
         placeholder="Type a message"
@@ -27,11 +28,13 @@ const userStore = useUserStore();
 const props = defineProps(["id", "userId"]);
 
 const message = ref("");
+const refInputMessage = ref(null);
 
 const handleSendMessage = async () => {
   if (message.value) {
     await chatStore.newMessage(props.id, userStore.id, message.value);
     message.value = "";
+    refInputMessage.value.focus();
   }
 };
 </script>
