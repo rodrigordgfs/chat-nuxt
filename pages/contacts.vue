@@ -15,6 +15,10 @@
 <script setup>
 import { useChatStore } from "@/stores/chat";
 
+definePageMeta({
+  name: "Contacts",
+});
+
 const router = useRouter();
 const chatStore = useChatStore();
 const persons = usePersons().value;

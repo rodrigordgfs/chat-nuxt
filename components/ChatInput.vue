@@ -8,11 +8,11 @@
         placeholder="Type a message"
         v-model="message"
       />
-      <FaceSmileIcon class="w-6 h-6 text-white cursor-pointer" />
     </div>
     <button
       type="submit"
-      class="bg-blue-600 rounded-lg px-4 py-2 text-white ml-2 focus:outline-none"
+      :disabled="disabledSendButton"
+      class="bg-blue-600 hover:bg-blue-900 disabled:bg-zinc-800 disabled:cursor-not-allowed rounded-lg px-4 py-2 text-white ml-2 focus:outline-none transition-all"
     >
       <PaperAirplaneIcon class="w-6 h-6" />
     </button>
@@ -31,6 +31,8 @@ const emits = defineEmits(["typing"]);
 
 const message = ref("");
 const refInputMessage = ref(null);
+
+const disabledSendButton = computed(() => !message.value);
 
 const handleSendMessage = async () => {
   if (message.value) {

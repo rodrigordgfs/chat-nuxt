@@ -1,7 +1,7 @@
 <template>
   <div class="flex-1 overflow-y-auto custom-scrollbar mt-4">
     <form @submit.prevent="performSearch" class="pr-4">
-      <div class="bg-zinc-800 rounded-lg p-3 flex flex-row items-center">
+      <div class="bg-zinc-800 rounded-lg p-3 flex flex-row items-center gap-3">
         <MagnifyingGlassIcon class="w-6 h-6 text-white" />
         <input
           v-model="searchQuery"
@@ -27,6 +27,10 @@
 
 <script setup>
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
+
+definePageMeta({
+  name: "Home",
+});
 
 const chatStore = useChatStore();
 const router = useRouter();

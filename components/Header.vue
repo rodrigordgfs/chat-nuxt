@@ -12,7 +12,10 @@
         }"
       />
     </NuxtLink>
-    <p class="text-white text-2xl font-medium">Chat Nuxt</p>
+    <div class="flex flex-col justify-center items-center">
+      <span class="text-white text-2xl font-medium">Chat Nuxt</span>
+      <span class="text-gray-400 font-medium -m-1">{{ route.meta.name }}</span>
+    </div>
     <NuxtLink
       to="/contacts"
       class="w-10 h-10 flex justify-center items-center rounded-full hover:bg-zinc-800 transition-all"
@@ -34,11 +37,11 @@ import { HomeIcon, PencilSquareIcon } from "@heroicons/vue/24/solid";
 const route = useRoute();
 
 const isHomeRoute = computed(() =>
-  route.matched.some(({ name }) => name === "index")
+  route.matched.some(({ name }) => name === "Home")
 );
 
 const isContactRoute = computed(() =>
-  route.matched.some(({ name }) => name === "contacts")
+  route.matched.some(({ name }) => name === "Contacts")
 );
 </script>
 

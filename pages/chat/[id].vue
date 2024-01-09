@@ -12,6 +12,7 @@
 <script setup>
 definePageMeta({
   layout: "chat",
+  name: "Chat",
 });
 
 const chatStore = useChatStore();

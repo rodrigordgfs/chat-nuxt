@@ -1,22 +1,23 @@
 <template>
-  <div
-    v-if="isUserMessage"
-    class="flex flex-col p-3 items-end bg-zinc-800 text-white rounded-t-3xl rounded-bl-3xl"
-  >
-    <p>
-      {{ message }}
-    </p>
-    <p class="opacity-40 font-medium">{{ messageDate }}</p>
+  <div class="flex justify-end" v-if="isUserMessage">
+    <div
+      class="flex flex-col min-w-20 max-w-96 w-fit py-3 px-6 items-end bg-zinc-800 text-white rounded-t-3xl rounded-bl-3xl"
+    >
+      <p>
+        {{ message }}
+      </p>
+      <p class="opacity-40 font-medium">{{ messageDate }}</p>
+    </div>
   </div>
-
-  <div
-    v-else
-    class="flex flex-col p-3 bg-blue-600 text-white rounded-t-3xl rounded-br-3xl"
-  >
-    <p>
-      {{ message }}
-    </p>
-    <p class="opacity-40 font-medium">{{ messageDate }}</p>
+  <div v-else>
+    <div
+      class="flex flex-col min-w-20 max-w-96 w-fit py-3 px-6 bg-blue-600 text-white rounded-t-3xl rounded-br-3xl"
+    >
+      <p>
+        {{ message }}
+      </p>
+      <p class="opacity-40 font-medium">{{ messageDate }}</p>
+    </div>
   </div>
 </template>
 

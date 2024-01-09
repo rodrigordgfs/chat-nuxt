@@ -1,7 +1,7 @@
 <template>
   <div class="bg-zinc-800 w-full h-screen flex flex-col items-center">
     <div
-      class="max-w-full w-[450px] h-screen flex flex-col p-4 bg-zinc-900 shadow-lg"
+      class="max-w-full w-full md:w-104 h-screen flex flex-col p-4 bg-zinc-900 shadow-lg"
     >
       <slot />
     </div>
