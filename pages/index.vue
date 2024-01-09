@@ -9,6 +9,13 @@
           placeholder="Search conversations ..."
           class="bg-transparent w-full text-white placeholder-white focus:outline-none"
         />
+        <NuxtLink to="/contacts" class="fixed bottom-4 right-4">
+          <button
+            class="p-4 bg-blue-600 hover:bg-blue-900 rounded-full shadow-md transition-all"
+          >
+            <PlusIcon class="w-6 h-6 text-white" />
+          </button>
+        </NuxtLink>
       </div>
     </form>
     <div class="grid grid-cols-1 gap-4 mt-4 pr-4">
@@ -26,7 +33,7 @@
 </template>
 
 <script setup>
-import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
+import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/vue/24/solid";
 
 definePageMeta({
   name: "Home",
